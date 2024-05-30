@@ -53,8 +53,6 @@ We included two functionalities to the API
 
 The first one is **/help** entry point
 
-The following commmands works through *powershell*
-
 ##### INPUT
 ```
 curl -X POST "http://127.0.0.1:8000/help"
