@@ -93,7 +93,7 @@ curl -X POST "http://127.0.0.1:8000/help"
 ```
 
 The other one is **/classify** function
-This function takes *.json* file as an input with the values of the 24 features.
+This function takes *list* as an input with the values of the 24 features.
 It ouputs eather 1 or 0
 
 1 = Benign
