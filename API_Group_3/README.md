@@ -1,7 +1,10 @@
 # API GROUP 3
-### AUTHORS:
+### AUTHORS OF API:
 - Matěj Mašata
 - Pavel Pravec
+
+### DATASET
+Can be found [here](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic)
 
 ### API
 This API runs classifier of breast cancer on local server
