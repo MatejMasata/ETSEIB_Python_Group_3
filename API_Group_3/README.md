@@ -6,6 +6,12 @@
 ### DATASET
 Can be found [here](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic)
 
+##### MODIFICATIONS OF THE DATASET BY PREVIOUS GROUP
+In order to avoid multicollinearity in the model and simplify the interpretation of the results, it have been decided to remove the area and perimeter variables from the dataset.
+```
+removed_columns = ['perimeter1','perimeter2','perimeter3','area1','area2','area3']
+```
+
 ### API
 This API runs classifier of breast cancer on local server
 
