@@ -12,6 +12,8 @@ In order to avoid multicollinearity in the model and simplify the interpretation
 removed_columns = ['perimeter1','perimeter2','perimeter3','area1','area2','area3']
 ```
 
+The previous group also normalized the values of the features to be in range of 0 to 1.
+
 ### API
 This API runs classifier of breast cancer on local server
 
