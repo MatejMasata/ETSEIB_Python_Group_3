@@ -3,6 +3,17 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel
 import joblib
+import csv
+
+# Loading the test data
+file = open('./test_data.csv', 'r')
+csvreader = csv.reader(file)
+
+test_data = []
+for row in csvreader:
+    test_data.append(row)
+
+file.close()
 
 # Defining FastAPI app
 app = FastAPI()
@@ -12,26 +23,47 @@ app = FastAPI()
 # xx is in range from 1 to 40
 model = joblib.load('dtc_model_depth_10.joblib')
 
+
+###### INITIAL ENTRY POINT ######
 @app.post("/", response_class=PlainTextResponse)
 def alive():
     return """API started \nUse /help for more information"""
 
+
+###### ENTRY POINT FOR CLASSIFYING YOUR INSTANCES ###### 
 @app.post("/classify")
 def classify(classify_input: list[float]):
 
     if len(classify_input) != 24:
-        return "Incorrect number of features, to classify there needs to be 24 of them, use /help for more information"
-
+        raise HTTPException(status_code=400, detail="Incorrect number of features, to classify there needs to be 24 of them. Use /help for more information.")
+    
     prediction = model.predict([classify_input])
 
     return int(prediction)
 
+
+###### ENTRY POINT FOR CLASSIFYING INSTANCES FROM TESTSET ######
+@app.post("/classify_testset")
+def classify_testset(index: int):
+
+    global test_data
+    max = len(test_data) - 1
+    if index > max:
+        raise HTTPException(status_code=400, detail=f"Index out of range, max range is {max}!")
+
+    prediction = model.predict([test_data[index]])
+
+    return int(prediction)
+
+
+###### HELP ######
 @app.post("/help", response_class=PlainTextResponse)
 def help():
-    response = """/classify(INPUT_LIST)
-    It classifies if patient has breast cancer or not based on 24 features
-    The features are in form of a list 
-    The features are in order:
+    response = """
+    /classify
+            It classifies if patient has breast cancer or not based on 24 features.
+            The features are in form of a list provided by the API user.
+            The features are in order:
 
                     radius1: float
                     texture1: float
@@ -56,5 +88,10 @@ def help():
                     concavity3: float
                     concave_points3: float
                     symmetry3: float
-                    fractal_dimension3: float"""
+                    fractal_dimension3: float
+                    
+    /classify_testset
+            It classifies if patient has breast cancer or not based on 24 features.
+            These features are loaded from test file, which contains roughly 120 testing samples.        
+                    """
     return response
