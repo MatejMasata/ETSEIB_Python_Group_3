@@ -25,13 +25,13 @@ model = joblib.load('dtc_model_depth_10.joblib')
 
 
 ###### INITIAL ENTRY POINT ######
-@app.post("/", response_class=PlainTextResponse)
+@app.get("/", response_class=PlainTextResponse)
 def alive():
     return """API started \nUse /help for more information"""
 
 
 ###### ENTRY POINT FOR CLASSIFYING YOUR INSTANCES ###### 
-@app.post("/classify")
+@app.get("/classify")
 def classify(classify_input: list[float]):
 
     if len(classify_input) != 24:
@@ -43,7 +43,7 @@ def classify(classify_input: list[float]):
 
 
 ###### ENTRY POINT FOR CLASSIFYING INSTANCES FROM TESTSET ######
-@app.post("/classify_testset")
+@app.get("/classify_testset")
 def classify_testset(index: int):
 
     global test_data
@@ -57,7 +57,7 @@ def classify_testset(index: int):
 
 
 ###### HELP ######
-@app.post("/help", response_class=PlainTextResponse)
+@app.get("/help", response_class=PlainTextResponse)
 def help():
     response = """
     /classify

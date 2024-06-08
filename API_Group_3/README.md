@@ -41,7 +41,7 @@ To interact with the API open other terminal
 
 ##### INPUT
 ```
-curl -X POST "http://127.0.0.1:8000/"
+curl -X GET "http://127.0.0.1:8000/"
 ```
 
 ##### OUTPUT
@@ -62,7 +62,7 @@ It ouputs eather 1 or 0
 
 ##### INPUT
 ```
-curl -X POST "http://127.0.0.1:8000/classify" -H "Content-Type: application/json" -d "LIST_OF_FEATURES "
+curl -X GET "http://127.0.0.1:8000/classify" -H "Content-Type: application/json" -d "LIST_OF_FEATURES "
 
 ```
 
@@ -73,7 +73,7 @@ curl -X POST "http://127.0.0.1:8000/classify" -H "Content-Type: application/json
 
 ##### EXAMPLE
 ```
-curl -X POST "http://127.0.0.1:8000/classify" -H "Content-Type: application/json" -d "[0.40460977803019543,0.8065607034156239,0.4845174686286902,0.4432856879946016,0.41026241799437674,0.4174453280318091,0.5207070707070707,0.3483572030328561,0.047220713380409195,0.20283769448373407,0.12346602304789747,0.17505332412052754,0.07295454545454545,0.19359727221064596,0.029056678111104836,0.08513328634799552,0.37566702241195293,1.0,0.773492702899029,0.513345169834386,0.45551118210862623,0.6920962199312715,0.3837965700768776,0.42870261052079234]"
+curl -X GET "http://127.0.0.1:8000/classify" -H "Content-Type: application/json" -d "[0.40460977803019543,0.8065607034156239,0.4845174686286902,0.4432856879946016,0.41026241799437674,0.4174453280318091,0.5207070707070707,0.3483572030328561,0.047220713380409195,0.20283769448373407,0.12346602304789747,0.17505332412052754,0.07295454545454545,0.19359727221064596,0.029056678111104836,0.08513328634799552,0.37566702241195293,1.0,0.773492702899029,0.513345169834386,0.45551118210862623,0.6920962199312715,0.3837965700768776,0.42870261052079234]"
 
 1
 ```
@@ -82,7 +82,7 @@ The entry point also checks if you entered the correct number of features (24)
 
 ##### EXAMPLE
 ```
-curl -X POST "http://127.0.0.1:8000/classify" -H "Content-Type: application/json" -d "[1, 2] "
+curl -X GET "http://127.0.0.1:8000/classify" -H "Content-Type: application/json" -d "[1, 2] "
 
 {"detail":"Incorrect number of features, to classify there needs to be 24 of them. Use /help for more information."}
 ```
@@ -93,7 +93,7 @@ It ouputs eather 1 or 0
 
 ##### INPUT
 ```
-curl -X POST "http://127.0.0.1:8000/classify_testset?index=YOUR_INDEX"
+curl -X GET "http://127.0.0.1:8000/classify_testset?index=YOUR_INDEX"
 
 ```
 
@@ -104,7 +104,7 @@ curl -X POST "http://127.0.0.1:8000/classify_testset?index=YOUR_INDEX"
 
 ##### EXAMPLE
 ```
-curl -X POST "http://127.0.0.1:8000/classify_testset?index=2"
+curl -X GET "http://127.0.0.1:8000/classify_testset?index=2"
 
 0
 ```
@@ -112,7 +112,7 @@ curl -X POST "http://127.0.0.1:8000/classify_testset?index=2"
 The entry point also checks if the index you entered exists
 ##### EXAMPLE
 ```
-curl -X POST "http://127.0.0.1:8000/classify_testset?index=200" 
+curl -X GET "http://127.0.0.1:8000/classify_testset?index=200" 
 
 {"detail":"Index out of range, max range is 113!"}
 ```
@@ -123,7 +123,7 @@ This entry points prints help information about the API
 
 ##### INPUT
 ```
-curl -X POST "http://127.0.0.1:8000/help"
+curl -X GET "http://127.0.0.1:8000/help"
 ```
 
 
