@@ -43,8 +43,7 @@ To interact with the API open other terminal
 ```
 curl -X GET "http://127.0.0.1:8000/"
 ```
-
-##### OUTPUT
+Returns:
 ```
 API started 
 Use /help for more information
@@ -64,8 +63,7 @@ It ouputs eather 1 or 0
 ```
 curl -X GET "http://127.0.0.1:8000/classify" -H "Content-Type: application/json" -d "LIST_OF_FEATURES "
 ```
-
-##### OUTPUT
+Returns:
 ```
 1 or 0
 ```
@@ -99,8 +97,7 @@ It ouputs eather 1 or 0
 curl -X GET "http://127.0.0.1:8000/classify_testset?index=YOUR_INDEX"
 
 ```
-
-##### OUTPUT
+Returns:
 ```
 1 or 0
 ```
@@ -132,9 +129,7 @@ This entry points prints help information about the API
 ```
 curl -X GET "http://127.0.0.1:8000/help"
 ```
-
-
-##### OUTPUT
+Returns:
 ```
 /classify
             It classifies if patient has breast cancer or not based on 24 features.
