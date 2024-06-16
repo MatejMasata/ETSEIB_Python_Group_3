@@ -1,0 +1,9 @@
+fastapi
+uvicorn==0.29.0    
+pandas==2.2.2      
+numpy==1.26.4      
+pickle==4.0        
+sklearn==1.2.2
+xgboost==2.0.3
+PySimpleGUI==5.0.5
+requests==2.32.3
