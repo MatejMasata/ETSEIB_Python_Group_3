@@ -3,6 +3,9 @@
 - Matěj Mašata
 - Pavel Pravec
 
+### GITHUB:
+All of the code can be also found on [github](https://github.com/MatejMasata/ETSEIB_Python_Group_3)
+
 ### ABOUT THE API
 This API runs classifier of breast cancer on local server
 
