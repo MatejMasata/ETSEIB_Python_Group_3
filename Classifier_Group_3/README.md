@@ -3,6 +3,9 @@
 - Matěj Mašata
 - Pavel Pravec
 
+### GITHUB:
+All of the code can be also found on [github](https://github.com/MatejMasata/ETSEIB_Python_Group_3)
+
 ### DATASET: Wine
 Can be found [here](https://archive.ics.uci.edu/dataset/109/wine)
 
